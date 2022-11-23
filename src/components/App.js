@@ -1,11 +1,22 @@
 import React, { useReducer } from 'react'
 import { counterReducer } from '../reducers/counterReducer';
 import '../styles/App.css';
+
+const initialState = 0;
+
+
+
 const App = () => {
-const [state,dispatch] = useReducer(counterReducer,{/*initial state to be placed here*/})
+
+  
+const [count,dispatch] = useReducer(counterReducer,initialState)
   return (
     <div id="main">
 
+      <div>count :{count}</div>
+      <button onClick={()=>dispatch("increment")}>Increment</button>
+      <button onClick={()=>dispatch("decrement")}>Decrement</button>
+      <button onClick={()=>dispatch("reset")}>Reset</button>
     </div>
   )
 }
