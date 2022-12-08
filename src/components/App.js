@@ -1,25 +1,25 @@
-import React, { useReducer } from 'react'
-import { counterReducer } from '../reducers/counterReducer';
-import '../styles/App.css';
-
-const initialState = 0;
-
-
-
+import React, { useReducer } from "react";
+import { counterReducer } from "../reducers/counterReducer";
+import "../styles/App.css";
 const App = () => {
-
-  
-const [count,dispatch] = useReducer(counterReducer,initialState)
+  const [state, dispatch] = useReducer(counterReducer, 0);
   return (
     <div id="main">
-
-      <div>count :{count}</div>
-      <button onClick={()=>dispatch("increment")}>Increment</button>
-      <button onClick={()=>dispatch("decrement")}>Decrement</button>
-      <button onClick={()=>dispatch("reset")}>Reset</button>
+      <span id="counter">{state}</span>
+      <button
+        id="increment-btn"
+        onClick={() => dispatch({ type: "INCREMENT" })}
+      >
+        Increment
+      </button>
+      <button
+        id="decrement-btn"
+        onClick={() => dispatch({ type: "DECREMENT" })}
+      >
+        Decrement
+      </button>
     </div>
-  )
-}
-
+  );
+};
 
 export default App;
